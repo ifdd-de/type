@@ -1,0 +1,501 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "label": {
+      "@id": "rdfs:label",
+      "@container": "@language"
+    },
+    "comment": {
+      "@id": "rdfs:comment",
+      "@container": "@language"
+    },
+    "range": {
+      "@id": "rdfs:range",
+      "@type": "@id"
+    },
+    "definedBy": {
+      "@id": "rdfs:isDefinedBy",
+      "@type": "@id"
+    },
+    "order": {
+      "@id": "sh:order",
+      "@type": "xsd:integer"
+    },
+    "quantityKind": {
+      "@id": "qudt:hasQuantityKind",
+      "@type": "@id"
+    },
+    "applicableUnit": {
+      "@id": "qudt:applicableUnit",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "symbol": "qudt:symbol",
+    "exactMatch": {
+      "@id": "skos:exactMatch",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "@type": "owl:Ontology",
+      "label": {
+        "en": "Product",
+        "de": "Produkt"
+      },
+      "comment": {
+        "en": "Values of products: devices, systems, software.",
+        "de": "Werte von Produkten: Geräte, Anlagen, Software."
+      }
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/schema",
+      "@type": "rdfs:Class",
+      "label": {
+        "en": "Product",
+        "de": "Produkt"
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/uuid",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "UUID",
+        "de": "UUID"
+      },
+      "comment": {
+        "en": "Identifier of the object in its source.",
+        "de": "Kennung des Objekts in seiner Quelle."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 10
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/serial_number",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Serial number",
+        "de": "Seriennummer"
+      },
+      "comment": {
+        "en": "Serial number given by the manufacturer.",
+        "de": "Seriennummer des Herstellers."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 20
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/equipment_numbers",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Equipment numbers",
+        "de": "Equipmentnummern"
+      },
+      "comment": {
+        "en": "Equipment numbers in maintenance systems.",
+        "de": "Equipmentnummern in Instandhaltungssystemen."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 30
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/vendor",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Vendor",
+        "de": "Lieferant"
+      },
+      "comment": {
+        "en": "Company that supplied the product.",
+        "de": "Unternehmen, das das Produkt geliefert hat."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 40
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/manufacturer",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Manufacturer",
+        "de": "Hersteller"
+      },
+      "comment": {
+        "en": "Company that made the product.",
+        "de": "Unternehmen, das das Produkt hergestellt hat."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 50
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/c_created",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Created (source)",
+        "de": "Angelegt (Quelle)"
+      },
+      "comment": {
+        "en": "When the source created the object.",
+        "de": "Wann die Quelle das Objekt angelegt hat."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 906,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/c_modified",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Modified (source)",
+        "de": "Geändert (Quelle)"
+      },
+      "comment": {
+        "en": "When the source last changed the object.",
+        "de": "Wann die Quelle das Objekt zuletzt geändert hat."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 907,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/c_cacheCreated",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "First stored",
+        "de": "Erstmals gespeichert"
+      },
+      "comment": {
+        "en": "When the backend first stored the object (set by the backend).",
+        "de": "Wann das Backend das Objekt erstmals gespeichert hat (vom Backend gesetzt)."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 908,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/c_cacheUpdated",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Last confirmed",
+        "de": "Zuletzt bestätigt"
+      },
+      "comment": {
+        "en": "When the backend last stored or confirmed this version (set by the backend).",
+        "de": "Wann das Backend diese Version zuletzt gespeichert oder bestätigt hat (vom Backend gesetzt)."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 909,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/c_validNotBefore",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Valid from",
+        "de": "Gültig ab"
+      },
+      "comment": {
+        "en": "Start of the valid time of this version.",
+        "de": "Beginn der Gültigkeit dieser Version."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 910,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/c_validNotAfter",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Valid until",
+        "de": "Gültig bis"
+      },
+      "comment": {
+        "en": "End of the valid time of this version (exclusive).",
+        "de": "Ende der Gültigkeit dieser Version (ausschließlich)."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 911,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/objType",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Type",
+        "de": "Typ"
+      },
+      "comment": {
+        "en": "Type of the object as the source names it.",
+        "de": "Typ des Objekts, wie die Quelle ihn nennt."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 120
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/objScope",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Scope",
+        "de": "Bereich"
+      },
+      "comment": {
+        "en": "Free label for telling objects apart in a client; not used for access.",
+        "de": "Freie Kennzeichnung zur Unterscheidung im Client; nicht für Rechte genutzt."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 130
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/objName",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Name",
+        "de": "Name"
+      },
+      "comment": {
+        "en": "Name of the object in this context.",
+        "de": "Name des Objekts in diesem Context."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 140
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/description",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Description",
+        "de": "Beschreibung"
+      },
+      "comment": {
+        "en": "Short description.",
+        "de": "Kurze Beschreibung."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 150
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/isPartOf",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Part of",
+        "de": "Teil von"
+      },
+      "comment": {
+        "en": "The object this one is a part of.",
+        "de": "Das Objekt, zu dem dieses gehört."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 160,
+      "range": "{{ cookiecutter.ifdd_type_url }}/product/schema"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/hasPart",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Has parts",
+        "de": "Besteht aus"
+      },
+      "comment": {
+        "en": "The parts of this object.",
+        "de": "Die Teile dieses Objekts."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 170,
+      "range": "{{ cookiecutter.ifdd_type_url }}/product/schema"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/providesFunction",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Provides function",
+        "de": "Stellt Funktion bereit"
+      },
+      "comment": {
+        "en": "Functions this object provides.",
+        "de": "Funktionen, die dieses Objekt bereitstellt."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 180,
+      "range": "{{ cookiecutter.ifdd_type_url }}/function/schema"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/implementedBy",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Implemented by",
+        "de": "Umgesetzt durch"
+      },
+      "comment": {
+        "en": "Products that implement this object.",
+        "de": "Produkte, die dieses Objekt umsetzen."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 190
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/usesFunction",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Uses function",
+        "de": "Nutzt Funktion"
+      },
+      "comment": {
+        "en": "Functions this object uses.",
+        "de": "Funktionen, die dieses Objekt nutzt."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 200,
+      "range": "{{ cookiecutter.ifdd_type_url }}/function/schema"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/usedBy",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Used by",
+        "de": "Genutzt von"
+      },
+      "comment": {
+        "en": "Objects that use this one.",
+        "de": "Objekte, die dieses nutzen."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 210
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/responsibleOrganisation",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Responsible organisation",
+        "de": "Verantwortliche Organisation"
+      },
+      "comment": {
+        "en": "Organisation responsible for this object.",
+        "de": "Für dieses Objekt verantwortliche Organisation."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 220,
+      "range": "{{ cookiecutter.ifdd_type_url }}/organisation/schema"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/containedIn",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Located in",
+        "de": "Befindet sich in"
+      },
+      "comment": {
+        "en": "Location the product is in.",
+        "de": "Ort, an dem sich das Produkt befindet."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 230,
+      "range": "{{ cookiecutter.ifdd_type_url }}/location/schema"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/tags",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Tags",
+        "de": "Schlagworte"
+      },
+      "comment": {
+        "en": "Free keywords.",
+        "de": "Freie Schlagworte."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 240
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/origin",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Origin",
+        "de": "Herkunft"
+      },
+      "comment": {
+        "en": "Source system the values of this context come from.",
+        "de": "Quellsystem, aus dem die Werte dieses Contexts stammen."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 250
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/publisher",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Publisher",
+        "de": "Herausgeber"
+      },
+      "comment": {
+        "en": "Who publishes the values of this context.",
+        "de": "Wer die Werte dieses Contexts veröffentlicht."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 260
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/properties",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Properties",
+        "de": "Eigenschaften"
+      },
+      "comment": {
+        "en": "Further properties as id, value and validity.",
+        "de": "Weitere Eigenschaften als Kennung, Wert und Gültigkeit."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 270
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/prop_id",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Property",
+        "de": "Eigenschaft"
+      },
+      "comment": {
+        "en": "Identifier of a property.",
+        "de": "Kennung einer Eigenschaft."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 280
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/prop_val",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Value",
+        "de": "Wert"
+      },
+      "comment": {
+        "en": "Value of a property.",
+        "de": "Wert einer Eigenschaft."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 290
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/product/prop_validity",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Validity",
+        "de": "Gültigkeit"
+      },
+      "comment": {
+        "en": "Validity of a property value.",
+        "de": "Gültigkeit eines Eigenschaftswerts."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/product/",
+      "order": 300
+    }
+  ]
+}

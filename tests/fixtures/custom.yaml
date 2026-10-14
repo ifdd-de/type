@@ -1,0 +1,11 @@
+# Every option away from its default.
+default_context:
+  ifdd_type_prj_name: "Example Type"
+  ifdd_type_prj_slug: "example-type"
+  ifdd_type_host: "type.example.org"
+  ifdd_type_dev_port: "18082"
+  ifdd_type_autoindex: "n"
+  ifdd_type_cors_origin: "https://ui.example.org"
+  ifdd_type_cache_max_age: "0"
+  ifdd_type_memory_limit: "64M"
+  ifdd_proxy_network: "edge-net"

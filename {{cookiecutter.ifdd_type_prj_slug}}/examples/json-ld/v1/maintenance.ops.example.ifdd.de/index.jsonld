@@ -1,0 +1,288 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "label": {
+      "@id": "rdfs:label",
+      "@container": "@language"
+    },
+    "comment": {
+      "@id": "rdfs:comment",
+      "@container": "@language"
+    },
+    "range": {
+      "@id": "rdfs:range",
+      "@type": "@id"
+    },
+    "definedBy": {
+      "@id": "rdfs:isDefinedBy",
+      "@type": "@id"
+    },
+    "order": {
+      "@id": "sh:order",
+      "@type": "xsd:integer"
+    },
+    "quantityKind": {
+      "@id": "qudt:hasQuantityKind",
+      "@type": "@id"
+    },
+    "applicableUnit": {
+      "@id": "qudt:applicableUnit",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "symbol": "qudt:symbol",
+    "exactMatch": {
+      "@id": "skos:exactMatch",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "@type": "owl:Ontology",
+      "label": {
+        "en": "Maintenance",
+        "de": "Wartung"
+      },
+      "comment": {
+        "en": "Simplified example of a second domain context: maintenance data.",
+        "de": "Vereinfachtes Beispiel eines zweiten Domänen-Contexts: Wartungsdaten."
+      }
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/schema",
+      "@type": "rdfs:Class",
+      "label": {
+        "en": "Maintenance",
+        "de": "Wartung"
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/objType",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Type",
+        "de": "Typ"
+      },
+      "comment": {
+        "en": "Type of the object as the source names it.",
+        "de": "Typ des Objekts, wie die Quelle ihn nennt."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 10
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/objScope",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Scope",
+        "de": "Bereich"
+      },
+      "comment": {
+        "en": "Free label for telling objects apart in a client; not used for access.",
+        "de": "Freie Kennzeichnung zur Unterscheidung im Client; nicht für Rechte genutzt."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 20
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/objName",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Name",
+        "de": "Name"
+      },
+      "comment": {
+        "en": "Name of the object in this context.",
+        "de": "Name des Objekts in diesem Context."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 30
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/origin",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Origin",
+        "de": "Herkunft"
+      },
+      "comment": {
+        "en": "Source system the values of this context come from.",
+        "de": "Quellsystem, aus dem die Werte dieses Contexts stammen."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 40
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/publisher",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Publisher",
+        "de": "Herausgeber"
+      },
+      "comment": {
+        "en": "Who publishes the values of this context.",
+        "de": "Wer die Werte dieses Contexts veröffentlicht."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 50
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/c_created",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Created (source)",
+        "de": "Angelegt (Quelle)"
+      },
+      "comment": {
+        "en": "When the source created the object.",
+        "de": "Wann die Quelle das Objekt angelegt hat."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 906,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/c_modified",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Modified (source)",
+        "de": "Geändert (Quelle)"
+      },
+      "comment": {
+        "en": "When the source last changed the object.",
+        "de": "Wann die Quelle das Objekt zuletzt geändert hat."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 907,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/c_cacheCreated",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "First stored",
+        "de": "Erstmals gespeichert"
+      },
+      "comment": {
+        "en": "When the backend first stored the object (set by the backend).",
+        "de": "Wann das Backend das Objekt erstmals gespeichert hat (vom Backend gesetzt)."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 908,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/c_cacheUpdated",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Last confirmed",
+        "de": "Zuletzt bestätigt"
+      },
+      "comment": {
+        "en": "When the backend last stored or confirmed this version (set by the backend).",
+        "de": "Wann das Backend diese Version zuletzt gespeichert oder bestätigt hat (vom Backend gesetzt)."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 909,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/c_validNotBefore",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Valid from",
+        "de": "Gültig ab"
+      },
+      "comment": {
+        "en": "Start of the valid time of this version.",
+        "de": "Beginn der Gültigkeit dieser Version."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 910,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/c_validNotAfter",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Valid until",
+        "de": "Gültig bis"
+      },
+      "comment": {
+        "en": "End of the valid time of this version (exclusive).",
+        "de": "Ende der Gültigkeit dieser Version (ausschließlich)."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 911,
+      "range": "xsd:dateTime"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/maintenanceInterval",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Maintenance interval",
+        "de": "Wartungsintervall"
+      },
+      "comment": {
+        "en": "Time between two inspections (ISO 8601 duration).",
+        "de": "Zeit zwischen zwei Prüfungen (ISO-8601-Dauer)."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 120,
+      "range": "xsd:duration"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/lastInspection",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Last inspection",
+        "de": "Letzte Prüfung"
+      },
+      "comment": {
+        "en": "Date of the last inspection.",
+        "de": "Datum der letzten Prüfung."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 130,
+      "range": "xsd:date"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/nextInspection",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Next inspection",
+        "de": "Nächste Prüfung"
+      },
+      "comment": {
+        "en": "Date of the next planned inspection.",
+        "de": "Datum der nächsten geplanten Prüfung."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 140,
+      "range": "xsd:date"
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/condition",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Condition",
+        "de": "Zustand"
+      },
+      "comment": {
+        "en": "Condition found at the last inspection.",
+        "de": "Bei der letzten Prüfung festgestellter Zustand."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/maintenance.ops.example.ifdd.de/",
+      "order": 150
+    }
+  ]
+}
