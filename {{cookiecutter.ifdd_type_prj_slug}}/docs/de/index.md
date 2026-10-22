@@ -43,9 +43,16 @@ Die Beispiele nutzen nur Standard-Vokabulare: `rdfs:label` und
 `rdfs:comment` je Sprache (`en`, `de`), `rdfs:range`, `rdfs:isDefinedBy`,
 `sh:order` (Reihenfolge in der UI), `qudt:hasQuantityKind`,
 `qudt:applicableUnit` (Einheiten des Dienstes unit,
-`{{ cookiecutter.ifdd_unit_url }}`), `qudt:symbol` und `skos:exactMatch`.
+`{{ cookiecutter.ifdd_unit_url }}`), `qudt:symbol`, `skos:exactMatch` sowie
+`sh:minInclusive`/`sh:maxInclusive` (Grenzen eines Werts).
 Die UI zeigt das Label eines Namensraums als Titel seines Reiters, daher ist
 es ein schlichter Name; Hinweise wie „Beispiel“ gehören in `rdfs:comment`.
+
+Der Beispiel-Namensraum `climate.ops.example.ifdd.de` beschreibt Eigenschaften
+von Zeitreihen (Temperatur, relative Feuchte). ts-api prüft jedes Sample
+dagegen: Die Eigenschaft muss hier definiert sein, die Einheit zu ihren
+`qudt:applicableUnit` gehören und der Wert zwischen `sh:minInclusive` und
+`sh:maxInclusive` liegen.
 
 ## Architektur
 

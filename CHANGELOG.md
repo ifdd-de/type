@@ -2,6 +2,16 @@
 
 The version scheme follows the other IFDD templates: `YY.MM.N`.
 
+## [Unreleased]
+
+- New example namespace `climate.ops.example.ifdd.de` for time series:
+  `temperature` (unit `DEG_C`, bounds -50 to 100) and `relativeHumidity`
+  (unit `PERCENT_RH`, bounds 0 to 100), with `qudt:hasQuantityKind`,
+  `qudt:applicableUnit` and the bounds as `sh:minInclusive`/`sh:maxInclusive`.
+  ts-api checks samples against it. The units are new examples of the unit
+  template. `examples` is on the skip list: existing instances and the
+  content repository take the new namespace by hand.
+
 ## [26.10.2] - 2026-10-14
 
 - Documentation of the instance in `docs/en` and `docs/de` (Sphinx sources,
