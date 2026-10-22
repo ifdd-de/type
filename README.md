@@ -54,8 +54,9 @@ unknown namespace answers 404.
 The examples use standard vocabularies only: `rdfs:label` and
 `rdfs:comment` per language (`en`, `de`), `rdfs:range`,
 `rdfs:isDefinedBy`, `sh:order` (order in the UI), `qudt:hasQuantityKind`,
-`qudt:applicableUnit`, `qudt:symbol` and `skos:exactMatch` (the matching
-QUDT IRI). The compact form of the examples is what ifdd-ui reads. ifdd-ui
+`qudt:applicableUnit`, `qudt:symbol`, `skos:exactMatch` (the matching
+QUDT IRI) and `sh:minInclusive`/`sh:maxInclusive` (bounds of a value, checked
+by ts-api). The compact form of the examples is what ifdd-ui reads. ifdd-ui
 shows the label of a namespace as the title of its tab, so it is a plain name
 ("Maintenance", "Wartung"); notes such as "example" go into `rdfs:comment`.
 

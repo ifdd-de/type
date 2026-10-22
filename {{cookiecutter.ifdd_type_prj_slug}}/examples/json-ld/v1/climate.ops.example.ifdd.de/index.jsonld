@@ -1,0 +1,100 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "label": {
+      "@id": "rdfs:label",
+      "@container": "@language"
+    },
+    "comment": {
+      "@id": "rdfs:comment",
+      "@container": "@language"
+    },
+    "range": {
+      "@id": "rdfs:range",
+      "@type": "@id"
+    },
+    "definedBy": {
+      "@id": "rdfs:isDefinedBy",
+      "@type": "@id"
+    },
+    "order": {
+      "@id": "sh:order",
+      "@type": "xsd:integer"
+    },
+    "quantityKind": {
+      "@id": "qudt:hasQuantityKind",
+      "@type": "@id"
+    },
+    "applicableUnit": {
+      "@id": "qudt:applicableUnit",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "symbol": "qudt:symbol",
+    "exactMatch": {
+      "@id": "skos:exactMatch",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/climate.ops.example.ifdd.de/",
+      "@type": "owl:Ontology",
+      "label": {
+        "en": "Climate",
+        "de": "Klima"
+      },
+      "comment": {
+        "en": "Simplified example of a vocabulary for time series: ambient conditions at an object, written through ts-api into two stores.",
+        "de": "Vereinfachtes Beispiel eines Vokabulars für Zeitreihen: Umgebungsbedingungen an einem Objekt, über ts-api in zwei Stores geschrieben."
+      }
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/climate.ops.example.ifdd.de/temperature",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Temperature",
+        "de": "Temperatur"
+      },
+      "comment": {
+        "en": "Ambient temperature at the object. The bounds are an example.",
+        "de": "Umgebungstemperatur am Objekt. Die Grenzen sind ein Beispiel."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/climate.ops.example.ifdd.de/",
+      "order": 100,
+      "quantityKind": "{{ cookiecutter.ifdd_unit_url }}/quantitykind/Temperature",
+      "applicableUnit": [
+        "{{ cookiecutter.ifdd_unit_url }}/unit/DEG_C"
+      ],
+      "sh:minInclusive": -50,
+      "sh:maxInclusive": 100
+    },
+    {
+      "@id": "{{ cookiecutter.ifdd_type_url }}/climate.ops.example.ifdd.de/relativeHumidity",
+      "@type": "rdf:Property",
+      "label": {
+        "en": "Relative humidity",
+        "de": "Relative Luftfeuchte"
+      },
+      "comment": {
+        "en": "Relative humidity of the air at the object.",
+        "de": "Relative Feuchte der Luft am Objekt."
+      },
+      "definedBy": "{{ cookiecutter.ifdd_type_url }}/climate.ops.example.ifdd.de/",
+      "order": 110,
+      "quantityKind": "{{ cookiecutter.ifdd_unit_url }}/quantitykind/RelativeHumidity",
+      "applicableUnit": [
+        "{{ cookiecutter.ifdd_unit_url }}/unit/PERCENT_RH"
+      ],
+      "sh:minInclusive": 0,
+      "sh:maxInclusive": 100
+    }
+  ]
+}

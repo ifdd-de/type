@@ -42,9 +42,16 @@ The examples use standard vocabularies only: `rdfs:label` and
 `rdfs:comment` per language (`en`, `de`), `rdfs:range`,
 `rdfs:isDefinedBy`, `sh:order` (order in the UI), `qudt:hasQuantityKind`,
 `qudt:applicableUnit` (units of the unit service,
-`{{ cookiecutter.ifdd_unit_url }}`), `qudt:symbol` and `skos:exactMatch`.
+`{{ cookiecutter.ifdd_unit_url }}`), `qudt:symbol`, `skos:exactMatch`, and
+`sh:minInclusive`/`sh:maxInclusive` (bounds of a value).
 The UI shows the label of a namespace as the title of its tab, so it is a
 plain name; notes such as "example" go into `rdfs:comment`.
+
+The example namespace `climate.ops.example.ifdd.de` describes properties of
+time series (temperature, relative humidity). ts-api checks every sample
+against it: the property must be defined here, the unit must be one of its
+`qudt:applicableUnit`, and the value must lie within `sh:minInclusive` and
+`sh:maxInclusive`.
 
 ## Architecture
 
