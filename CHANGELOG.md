@@ -2,7 +2,11 @@
 
 The version scheme follows the other IFDD templates: `YY.MM.N`.
 
-## [Unreleased]
+## [26.10.3] - 2026-10-30
+
+- nginx image `nginxinc/nginx-unprivileged:1.30.6-alpine-slim` (`ifdd_nginx_image`,
+  was 1.30.5).
+- Documentation check: Sphinx 9.2.0 (`tests/docs/requirements.txt`).
 
 - New example namespace `climate.ops.example.ifdd.de` for time series:
   `temperature` (unit `DEG_C`, bounds -50 to 100) and `relativeHumidity`
