@@ -55,12 +55,19 @@ against it: the property must be defined here, the unit must be one of its
 
 ## Architecture
 
-```{mermaid}
-flowchart LR
-  Clients[browsers, services] -->|HTTPS| Proxy[proxy: Traefik]
-  Proxy -->|"{{ cookiecutter.ifdd_type_host }}, port 8080"| Nginx[type: nginx]
-  Nginx -->|read-only| Content[(content clone)]
-  Repo[content repository] -->|git pull| Content
+```{uml}
+@startuml
+left to right direction
+  rectangle "browsers, services" as Clients
+  rectangle "proxy: Traefik" as Proxy
+  Clients --> Proxy : HTTPS
+  rectangle "type: nginx" as Nginx
+  Proxy --> Nginx : {{ cookiecutter.ifdd_type_host }}, port 8080
+  database "content clone" as Content
+  Nginx --> Content : read-only
+  rectangle "content repository" as Repo
+  Repo --> Content : git pull
+@enduml
 ```
 
 | Who | Uses this service for |
